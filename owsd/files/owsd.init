@@ -75,6 +75,7 @@ validate_owsd_iface() {
 		'origin:list(string)' \
 		'whitelist_interface_as_origin:bool:0' \
 		'whitelist_dhcp_domains:bool:0' \
+		'whitelist_all_origins:bool:0' \
 		'ipv6:bool:1' \
 		'ipv6only:bool:0' \
 		'linklocal:bool:0' \
@@ -88,7 +89,7 @@ validate_owsd_iface() {
 }
 
 parse_owsd_iface() {
-	local port interface whitelist_interface_as_origin whitelist_dhcp_domains ipv6 ipv6only linklocal
+	local port interface whitelist_interface_as_origin whitelist_dhcp_domains whitelist_all_origins ipv6 ipv6only linklocal
 	local cert key ca
 	local restrict_to_user
 	local ubusx_acl
@@ -116,8 +117,22 @@ parse_owsd_iface() {
 
 	}
 
+	origin_whitelist_all() {
+		[ "$1" = "*" ] && echo "true"
+	}
+
 	append_whitelists () {
 		config_list_foreach "$1" "origin" append_origin
+
+		whitelist=$(config_list_foreach "$1" "origin" origin_whitelist_all)
+
+		[ -n "$whitelist" ] && whitelist_all_origins=1
+
+		if [ "$whitelist_all_origins" -eq 1 ]; then
+			procd_append_param command -O
+			whitelist_dhcp_domains=1
+			whitelist_interface_as_origin=1
+		fi
 
 		if [ "$whitelist_dhcp_domains" -eq 1 ]; then
 			for domain in $DHCP_DOMAINS; do
@@ -233,6 +248,11 @@ start_service() {
 	fi
 
 }
+
+#stop_service()
+#{
+#	service_stop ${PROG}
+#}
 
 reload_service() {
         stop
