@@ -1,0 +1,10 @@
+CONFIG_PACKAGE_juci-dropbear=y
+CONFIG_PACKAGE_juci-mod-system=y
+CONFIG_PACKAGE_juci-network-device=y
+CONFIG_PACKAGE_juci-network-netifd=y
+CONFIG_PACKAGE_juci-theme-prpl=y
+CONFIG_PACKAGE_juci=y
+CONFIG_PACKAGE_uhttpd=y
+CONFIG_uhttpd_lua=y
+CONFIG_PACKAGE_uhttpd-mod-lua=y
+CONFIG_PACKAGE_uhttpd-mod-ubus=y
