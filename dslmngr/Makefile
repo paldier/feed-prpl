@@ -25,11 +25,11 @@ else
 endif
 
 define Package/dslmngr
-  SECTION:=net
-  CATEGORY:=Network
-  SUBMENU:=DSL
+  SECTION:=iopsys
+  CATEGORY:=IOPSYS
   TITLE:=XDSL status and configration utility
   DEPENDS:=+libdsl +libuci +libubox +ubus +libpthread +libnl-genl
+  BROKEN:=1
 endef
 
 define Package/dslmngr/description

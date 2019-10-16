@@ -25,8 +25,8 @@ PKG_LICENSE_FILES:=LICENSE
 include $(INCLUDE_DIR)/package.mk
 
 define Package/obuspa
-  SECTION:=utils
-  CATEGORY:=Utilities
+  SECTION:=iopsys
+  CATEGORY:=IOPSYS
   TITLE:=USP agent
   DEPENDS:=+libcoap +libopenssl +libcurl +libsqlite3 +libcares +libubox +libubus +libblobmsg-json +uspd
 endef

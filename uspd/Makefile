@@ -22,8 +22,8 @@ PKG_LICENSE_FILES:=LICENSE
 include $(INCLUDE_DIR)/package.mk
 
 define Package/uspd
-  SECTION:=utils
-  CATEGORY:=Utilities
+  SECTION:=iopsys
+  CATEGORY:=IOPSYS
   TITLE:=USP ubus backend
   DEPENDS:=+libubox +ubus +libbbfdm
 endef

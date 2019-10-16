@@ -31,8 +31,8 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/owsd
-  SECTION:=net
-  CATEGORY:=Network
+  SECTION:=iopsys
+  CATEGORY:=IOPSYS
   DEPENDS:=+libjson-c +libblobmsg-json +libwebsockets +ubox \
 	  +OWSD_USE_UBUS:ubus \
 	  +OWSD_USE_DBUS:libdbus \
