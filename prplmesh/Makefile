@@ -4,7 +4,7 @@ PKG_NAME:=prplmesh
 PKG_RELEASE:=1.4.0
 PKG_SOURCE_URL:=https://github.com/prplfoundation/prplMesh.git
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=86cbf8de
+PKG_SOURCE_VERSION:=eb2327daaff7c4e5071dcfb9ddd75c88f2b747a7
 PKG_VERSION:=$(PKG_RELEASE)-$(PKG_SOURCE_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
@@ -16,7 +16,7 @@ define Package/prplmesh/Default
 	TITLE:=prplmesh
 	URL:=https://github.com/prplfoundation/prplMesh/README.md
 	MAINTAINER:=prplfoundation
-	DEPENDS:=+libstdcpp +libpthread +librt +libjson-c +libreadline +libopenssl +libnl +uci +ubus +ubox +bridge +libzmq-nc
+	DEPENDS:=+libstdcpp +libpthread +librt +libjson-c +libreadline +libopenssl +libnl +uci +ubus +ubox +bridge +libzmq-nc +ebtables
 endef
 
 define Package/prplmesh-dwpal
@@ -24,7 +24,7 @@ $(call Package/prplmesh/Default)
 	TITLE+= - DWPAL
 	VARIANT:=dwpal
 	PROVIDES:=prplmesh
-	DEPENDS+= @TARGET_intel_mips +dwpal_6x-uci +iwlwav-hostap-uci +libsafec3
+	DEPENDS+= @TARGET_intel_mips +dwpal_6x-uci +iwlwav-hostap-uci +@WIRELESS_STA +libsafec3
 endef
 
 define Package/prplmesh-nl80211
@@ -32,7 +32,7 @@ $(call Package/prplmesh/Default)
 	TITLE+= - NL80211
 	VARIANT:=nl80211
 	PROVIDES:=prplmesh
-	DEPENDS+= +hostapd-openssl +hostapd-utils
+	DEPENDS+= +hostapd-openssl +hostapd-utils +wpa-supplicant-openssl
 endef
 
 CMAKE_SOURCE_DIR:=
