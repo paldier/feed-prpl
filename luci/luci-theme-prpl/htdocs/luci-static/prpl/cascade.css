@@ -315,7 +315,8 @@ body.modal-overlay-active #modal_overlay {
 .td input[type="password"],
 .td select,
 .td .cbi-dropdown:not(.btn):not(.cbi-button),
-.td .cbi-dynlist {
+.td .cbi-dynlist,
+.td .control-group {
 	min-width: auto;
 	width: 100%;
 }
@@ -918,10 +919,12 @@ button[disabled], button.disabled, .btn[disabled], .btn.disabled {
 	background: var(--danger-color);
 }
 
+.cbi-radio input[type="radio"],
 .cbi-checkbox input[type="checkbox"] {
 	display: none;
 }
 
+.cbi-radio input[type="radio"] + label,
 .cbi-checkbox input[type="checkbox"] + label {
 	position: relative;
 	display: inline-block;
@@ -930,6 +933,7 @@ button[disabled], button.disabled, .btn[disabled], .btn.disabled {
 	vertical-align: text-top;
 }
 
+.cbi-radio input[type="radio"] + label::before,
 .cbi-checkbox input[type="checkbox"] + label::before {
 	content: "\0a";
 	height: 1em;
@@ -944,6 +948,7 @@ button[disabled], button.disabled, .btn[disabled], .btn.disabled {
 	cursor: pointer;
 }
 
+.cbi-radio input[type="radio"]:checked + label::after,
 .cbi-checkbox input[type="checkbox"]:checked + label::after {
 	content: "\0a";
 	position: absolute;
@@ -955,6 +960,11 @@ button[disabled], button.disabled, .btn[disabled], .btn.disabled {
 	height: .6em;
 	border-radius: .15em;
 	cursor: pointer;
+}
+
+.cbi-radio input[type="radio"] + label::before,
+.cbi-radio input[type="radio"]:checked + label::after {
+	border-radius: 50%;
 }
 
 input:not([type]),
@@ -1026,7 +1036,6 @@ textarea {
 
 .control-group {
 	display: inline-flex;
-	margin: 0 -.125rem;
 }
 
 .control-group > *,
@@ -1043,6 +1052,12 @@ textarea {
 .control-group > input:not([type]),
 .control-group > input[type="text"] {
 	flex: 10;
+}
+
+.td.cbi-value-field > .hidden {
+	display: block !important;
+	opacity: .6;
+	pointer-events: none;
 }
 
 .cbi-value {
@@ -1420,7 +1435,7 @@ textarea {
 }
 
 div[id$=".ipaddr"] > input,
-.cbi-value-field > div > input[type="password"] {
+.cbi-value-field > div > div > input[type="password"] {
 	min-width: 18.5rem;
 	border-radius: .25rem 0 0 .25rem;
 }
@@ -1840,6 +1855,7 @@ ul.errors {
 		flex-basis: 100%;
 	}
 
+	.cbi-radio,
 	.cbi-checkbox {
 		margin: .25rem;
 	}
