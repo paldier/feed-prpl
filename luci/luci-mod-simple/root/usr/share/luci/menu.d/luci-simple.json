@@ -1,0 +1,28 @@
+{
+	"admin/simple-start": {
+		"title": "Start",
+		"order": 10,
+		"action": {
+			"type": "view",
+			"path": "simple/start"
+		}
+	},
+
+	"admin/simple-internet": {
+		"title": "Internet",
+		"order": 20,
+		"action": {
+			"type": "view",
+			"path": "simple/internet"
+		}
+	},
+
+	"admin/simple-wireless": {
+		"title": "Wi-Fi",
+		"order": 30,
+		"action": {
+			"type": "view",
+			"path": "simple/wireless"
+		}
+	}
+}

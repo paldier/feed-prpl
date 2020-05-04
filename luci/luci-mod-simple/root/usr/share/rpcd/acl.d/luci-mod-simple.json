@@ -1,0 +1,26 @@
+{
+	"luci-mod-simple-internet": {
+		"description": "Internet access configuration",
+		"read": {
+			"file": {
+				"/sbin/fw3 restart": [ "exec" ],
+				"/sys/class/ieee80211/phy?/macaddress": [ "read" ]
+			},
+			"ubus": {
+				"file": [ "exec", "read" ],
+				"iwinfo": [ "txpowerlist" ],
+				"luci-rpc": [ "getHostHints" ],
+				"network.interface": [ "down", "status", "up" ],
+				"system": [ "board" ]
+			},
+			"uci": [ "dhcp", "firewall", "network", "wireless" ]
+		},
+		"write": {
+			"ubus": {
+				"iwinfo": [ "scan" ],
+				"uci": [ "commit" ]
+			},
+			"uci": [ "dhcp", "firewall", "network", "wireless" ]
+		}
+	}
+}
