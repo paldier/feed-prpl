@@ -1,10 +1,10 @@
 {
-	"admin/simple-start": {
-		"title": "Start",
+	"admin/simple-status": {
+		"title": "Status",
 		"order": 10,
 		"action": {
 			"type": "view",
-			"path": "simple/start"
+			"path": "simple/status"
 		}
 	},
 

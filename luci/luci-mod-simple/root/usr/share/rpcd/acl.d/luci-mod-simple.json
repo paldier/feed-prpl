@@ -1,17 +1,19 @@
 {
-	"luci-mod-simple-internet": {
-		"description": "Internet access configuration",
+	"luci-mod-simple": {
+		"description": "LuCI simple ui access",
 		"read": {
 			"file": {
+				"/proc/sys/net/netfilter/nf_conntrack_count": [ "read" ],
+				"/proc/sys/net/netfilter/nf_conntrack_max": [ "read" ],
 				"/sbin/fw3 restart": [ "exec" ],
-				"/sys/class/ieee80211/phy?/macaddress": [ "read" ]
+				"/sys/class/ieee80211/phy?/macaddress": [ "read" ],
 			},
 			"ubus": {
 				"file": [ "exec", "read" ],
 				"iwinfo": [ "txpowerlist" ],
-				"luci-rpc": [ "getHostHints" ],
+				"luci-rpc": [ "getHostHints", "getNetworkDevices" ],
 				"network.interface": [ "down", "status", "up" ],
-				"system": [ "board" ]
+				"system": [ "board", "info" ]
 			},
 			"uci": [ "dhcp", "firewall", "network", "wireless" ]
 		},
