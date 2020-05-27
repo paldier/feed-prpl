@@ -13,7 +13,8 @@
 				"iwinfo": [ "txpowerlist" ],
 				"luci-rpc": [ "getHostHints", "getNetworkDevices" ],
 				"network.interface": [ "down", "status", "up" ],
-				"system": [ "board", "info" ]
+				"system": [ "board", "info" ],
+				"topology": [ "getTopology" ]
 			},
 			"uci": [ "dhcp", "firewall", "network", "wireless" ]
 		},
