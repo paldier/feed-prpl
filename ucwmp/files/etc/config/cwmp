@@ -1,4 +1,5 @@
 config acs acs
+	option enabled 1
 	option url 'http://172.27.0.209:8080/openacs/acs'
 	option username 'admin'
 	option password 'openacs'
@@ -14,5 +15,4 @@ config cpe cpe
 	option amd_version '2'
 
 config cwmp cwmp
-	option enabled 1
 	option debug 1
