@@ -5,12 +5,11 @@
 			"file": {
 				"/proc/sys/net/netfilter/nf_conntrack_count": [ "read" ],
 				"/proc/sys/net/netfilter/nf_conntrack_max": [ "read" ],
-				"/sbin/fw3 restart": [ "exec" ],
 				"/sys/class/ieee80211/phy?/macaddress": [ "read" ],
 			},
 			"ubus": {
 				"file": [ "exec", "read" ],
-				"iwinfo": [ "txpowerlist" ],
+				"iwinfo": [ "info", "txpowerlist" ],
 				"luci-rpc": [ "getHostHints", "getNetworkDevices" ],
 				"network.interface": [ "down", "status", "up" ],
 				"system": [ "board", "info" ],
