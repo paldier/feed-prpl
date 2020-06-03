@@ -437,8 +437,6 @@ return view.extend({
 				callUciCommit('dhcp')
 			]);
 		}).then(function() {
-			return fs.exec('/sbin/fw3', ['restart']);
-		}).then(function() {
 			window.setTimeout(ui.hideModal, 1500);
 		});
 	},
