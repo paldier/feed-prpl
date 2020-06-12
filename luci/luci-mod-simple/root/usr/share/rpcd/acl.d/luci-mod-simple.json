@@ -5,24 +5,34 @@
 			"file": {
 				"/proc/sys/net/netfilter/nf_conntrack_count": [ "read" ],
 				"/proc/sys/net/netfilter/nf_conntrack_max": [ "read" ],
-				"/sys/class/ieee80211/phy?/macaddress": [ "read" ],
+				"/sys/class/ieee80211/phy?/macaddress": [ "read" ]
 			},
 			"ubus": {
-				"file": [ "exec", "read" ],
+				"file": [ "read", "stat" ],
 				"iwinfo": [ "info", "txpowerlist" ],
 				"luci-rpc": [ "getHostHints", "getNetworkDevices" ],
 				"network.interface": [ "down", "status", "up" ],
 				"system": [ "board", "info" ],
 				"topology": [ "getTopology" ]
 			},
-			"uci": [ "dhcp", "firewall", "network", "wireless" ]
+			"uci": [ "cwmp", "dhcp", "firewall", "network", "obuspa", "uhttpd", "wireless" ]
 		},
 		"write": {
+			"cgi-io": [ "upload" ],
+			"file": {
+				"/sbin/firstboot -r -y": [ "exec" ],
+				"/sbin/reboot": [ "exec" ],
+				"/sbin/sysupgrade": [ "exec" ],
+				"/tmp/firmware.bin": [ "write" ]
+			},
 			"ubus": {
+				"file": [ "exec", "remove" ],
 				"iwinfo": [ "scan" ],
+				"luci": [ "setPassword" ],
+				"system": [ "validate_firmware_image" ],
 				"uci": [ "commit" ]
 			},
-			"uci": [ "dhcp", "firewall", "network", "wireless" ]
+			"uci": [ "cwmp", "dhcp", "firewall", "network", "obuspa", "uhttpd", "wireless" ]
 		}
 	}
 }
