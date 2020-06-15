@@ -2,13 +2,15 @@
 	"luci-mod-simple": {
 		"description": "LuCI simple ui access",
 		"read": {
+			"cgi-io": [ "exec" ],
 			"file": {
 				"/proc/sys/net/netfilter/nf_conntrack_count": [ "read" ],
 				"/proc/sys/net/netfilter/nf_conntrack_max": [ "read" ],
-				"/sys/class/ieee80211/phy?/macaddress": [ "read" ]
+				"/sys/class/ieee80211/phy?/macaddress": [ "read" ],
+				"/usr/sbin/iptables -t nat -n -x -v -L zone_wan_prerouting": [ "exec" ]
 			},
 			"ubus": {
-				"file": [ "read", "stat" ],
+				"file": [ "exec", "read", "stat" ],
 				"iwinfo": [ "info", "txpowerlist" ],
 				"luci-rpc": [ "getHostHints", "getNetworkDevices" ],
 				"network.interface": [ "down", "status", "up" ],

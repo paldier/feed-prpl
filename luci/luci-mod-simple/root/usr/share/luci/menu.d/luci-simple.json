@@ -35,21 +35,12 @@
 		}
 	},
 
-	"admin/simple-cwmp": {
-		"title": "CWMP",
+	"admin/simple-firewall": {
+		"title": "Firewall",
 		"order": 50,
 		"action": {
 			"type": "view",
-			"path": "simple/cwmp"
-		}
-	},
-
-	"admin/simple-usp": {
-		"title": "USP",
-		"order": 51,
-		"action": {
-			"type": "view",
-			"path": "simple/usp"
+			"path": "simple/firewall"
 		}
 	},
 
@@ -59,6 +50,24 @@
 		"action": {
 			"type": "view",
 			"path": "simple/system"
+		}
+	},
+
+	"admin/simple-cwmp": {
+		"title": "CWMP",
+		"order": 70,
+		"action": {
+			"type": "view",
+			"path": "simple/cwmp"
+		}
+	},
+
+	"admin/simple-usp": {
+		"title": "USP",
+		"order": 71,
+		"action": {
+			"type": "view",
+			"path": "simple/usp"
 		}
 	}
 }
