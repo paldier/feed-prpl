@@ -74,7 +74,7 @@ local function getTopology()
 	local ipaddrs = {}
 	local hosts = {}
 
-	if iw then
+	if ok then
 		for dev in (fs.dir("/sys/class/net") or function() end) do
 			local iwtype = iw.type(dev)
 			if iwtype then
