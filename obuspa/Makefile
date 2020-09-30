@@ -9,7 +9,7 @@ PKG_VERSION:=2.0.0
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=4491e22c6d0778766a41143861aeb4d8d60ba057
-PKG_SOURCE_URL:=https://github.com/paldier/obuspa.git
+PKG_SOURCE_URL:=https://dev.iopsys.eu/fork/obuspa.git
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_SOURCE_VERSION).tar.gz
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
